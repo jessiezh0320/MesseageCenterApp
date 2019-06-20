@@ -17,14 +17,6 @@ namespace interactivityListView
 			InitializeComponent ();
 		}
 
-		//void OnSelection (object sender, SelectedItemChangedEventArgs e)
-		//{
-		//	if (e.SelectedItem == null) 
-  //          {
-		//		return;
-		//	}
-		//	DisplayAlert ("Item Selected", e.SelectedItem.ToString (), "Ok");
-		//}
 
 		void OnRefresh (object sender, EventArgs e)
 		{
@@ -41,15 +33,14 @@ namespace interactivityListView
 
       
 
-        async void OnTap (object sender, EventArgs e)//ItemTappedEventArgs   //EventArgs
+        async  void OnTap (object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DetailPage());
+            await Navigation.PushAsync(new DetailPage());  //
             try
             {
                 MessagingCenter.Send(this, "Invoke", "Invokedtrue");
-                //MessagingCenter.Send<object, object>(this, "Invoke", "Invokedtrue");
                 Debug.Write("123456---->  send one msg");
-
+                //DisplayAlert("Alert", "set a message.", "OK");
             }
             catch (Exception ex)
             {

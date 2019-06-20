@@ -16,9 +16,6 @@ namespace interactivityListView.Views
 		public DetailPage ()
 		{
 			InitializeComponent ();
-
-            
-
         }
 
         protected override void OnAppearing()
@@ -27,15 +24,9 @@ namespace interactivityListView.Views
 
             MessagingCenter.Subscribe<interactiveListViewXaml, string>(this, "Invoke", async (sender, arg) =>
             {
-
                 Debug.Write("123456---->  get one msg");
+                DisplayAlert("Alert", "We have received a message.", "OK");
             });
-
-            //MessagingCenter.Subscribe<object, object>(this, "Invoke", (sender, arg) =>
-            //{
-            //    //await Process(arg);
-            //    Debug.Write("123456---->  get one msg");
-            //});
         }
 
         protected async override void OnDisappearing()
@@ -43,11 +34,11 @@ namespace interactivityListView.Views
             base.OnDisappearing();
 
             Debug.Write("123456---->  OnDisappearing() is called.............");
-            //MessagingCenter.Unsubscribe<object, object>(this, "Invoke");
+
+           
 
             MessagingCenter.Unsubscribe<interactiveListViewXaml,string>(this, "Invoke");
 
-            await Navigation.PopAsync();
         }
     }
 }
